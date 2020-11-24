@@ -1,5 +1,5 @@
 import React from 'react';
-import Book from './Book';
+//import Book from './Book';
 
 class BookShelf extends React.Component {
 
@@ -11,25 +11,7 @@ class BookShelf extends React.Component {
                 <h2 className="bookshelf-title">{this.props.Shelf}</h2>
                 <div className="bookshelf-books">
                     <ol className="books-grid">
-                        <li>
-                           <Book/>
-                        </li>
-                        <li>
-                           <Book/>
-                        </li>
-                        <li>
-                           <Book/>
-                        </li>
-                        <li>
-                           <Book/>
-                        </li>
-                        <li>
-                           <Book/>
-                        </li>
-                        <li>
-                           <Book/>
-                        </li>
-                        
+                       
                        
                     </ol>
                 </div>
