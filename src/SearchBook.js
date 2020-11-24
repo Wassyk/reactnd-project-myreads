@@ -18,14 +18,14 @@ class SearchBook extends React.Component {
             })
 
     }
-
     search = (value) => {
-        BooksAPI.update(value)
+        BooksAPI.search(value)
         .then((books) => {
             this.setState(() => ({
                 Books: books
             }))
         })
+        console.log(this.state.Books)
     }
 
     render() {
@@ -51,11 +51,11 @@ class SearchBook extends React.Component {
                 </div>
                 <div className="search-books-results">
                     <ol className="books-grid">
-                        {this.state.Books.length === 0 
-                        ? <p>No Result</p>
-                        : this.state.Books.map((book) => (<li>
-                            <Book Obj={book} />
-                        </li>))}
+                        {(this.state.Books=== undefined) ||(this.state.Books.error==='empty query')
+                         ?<p> No result found</p>
+                         : this.state.Books.map((item)=>(<li><Book Obj={item}/></li>))
+                            
+                       }
                     </ol>
                 </div>
             </div>

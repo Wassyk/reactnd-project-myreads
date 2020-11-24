@@ -5,7 +5,6 @@ class Book extends React.Component {
     render() {
  const Obj= this.props.Obj;
  const img='url('+Obj.imageLinks.thumbnail+')';
- console.log(img);
         return (
             <div className="book">
                 <div className="book-top">
@@ -21,7 +20,9 @@ class Book extends React.Component {
                     </div>
                 </div>
                 <div className="book-title">{Obj.title}</div>
-                <div className="book-authors">{Obj.authors.map((auth)=>(<p>{auth}</p>))}</div>
+                <div className="book-authors">{Obj.authors ===undefined
+                ? <p></p>
+                : Obj.authors.map((auth)=>(<p>{auth}</p>))}</div>
             </div>
         )
     }
