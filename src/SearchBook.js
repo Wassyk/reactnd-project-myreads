@@ -11,15 +11,7 @@ class SearchBook extends React.Component {
 
 
 
-    componentDidMount() {
-        BooksAPI.getAll()
-            .then((books) => {
-                this.setState(() => ({
-                    Books: books
-                }))
-            })
 
-    }
     search = (value) => {
         BooksAPI.search(value)
         .then((books) => {
@@ -27,7 +19,6 @@ class SearchBook extends React.Component {
                 Books: books
             }))
         })
-        console.log(this.state.Books)
     }
 
     render() {
@@ -58,6 +49,8 @@ class SearchBook extends React.Component {
                          : this.state.Books.map((item)=>(<li><Book Obj={item}/></li>))
                             
                        }
+
+                       {console.log(this.state.Books)}
                     </ol>
                 </div>
             </div>

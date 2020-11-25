@@ -1,5 +1,5 @@
 import React from 'react';
-//import Book from './Book';
+import Book from './Book';
 
 class BookShelf extends React.Component {
 
@@ -11,8 +11,10 @@ class BookShelf extends React.Component {
                 <h2 className="bookshelf-title">{this.props.Shelf}</h2>
                 <div className="bookshelf-books">
                     <ol className="books-grid">
-                       
-                       
+                    {(this.props.Books=== undefined) ||(this.props.Books.error==='empty query')
+                         ?<p> No result found</p>
+                         : this.props.Books.map((item)=>(<li><Book Obj={item}/></li>))
+                       }       
                     </ol>
                 </div>
             </div>
