@@ -4,7 +4,10 @@ class Book extends React.Component {
 
     render() {
  const Obj= this.props.Obj;
- const img='url('+Obj.imageLinks.thumbnail+')';
+ let img;
+ Obj.imageLinks===undefined
+ ? img=''
+ :img='url('+Obj.imageLinks.thumbnail+')';
         return (
             <div className="book">
                 <div className="book-top">
