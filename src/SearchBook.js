@@ -46,7 +46,7 @@ class SearchBook extends React.Component {
                     <ol className="books-grid">
                         {(this.state.Books=== undefined) ||(this.state.Books.error==='empty query')
                          ?<p> No result found</p>
-                         : this.state.Books.map((item)=>(<li><Book Obj={item} updateBook={this.props.updateBook}/></li>))
+                         : this.state.Books.map((item)=>(<li key={item.id}><Book Obj={item} updateBook={this.props.updateBook}/></li>))
                             
                        }
                     </ol>
