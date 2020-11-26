@@ -11,6 +11,12 @@ class BooksApp extends React.Component {
     MyBooks:[]
   }
 
+updateBook=(Book,shelf)=>{
+    BooksAPI.search(Book,shelf)
+    .then((result)=>{this.setState(()=>({MyBooks:result})
+    )}
+    )}
+
   componentDidMount() {
     BooksAPI.getAll()
         .then((books) => {
@@ -33,9 +39,9 @@ class BooksApp extends React.Component {
           </div>
           <div className="list-books-content">
             <div>
-            <BookShelf Shelf='Currently reading' Books={this.state.MyBooks.filter((book)=> book.shelf==='currentlyReading')} />
-            <BookShelf Shelf='Want to read' Books={this.state.MyBooks.filter((book)=> book.shelf==='wantToRead')}/>
-            <BookShelf Shelf='Read' Books={this.state.MyBooks.filter((book)=> book.shelf==='read')}/>
+            <BookShelf updateBook={this.updateBook} Shelf='Currently reading' Books={this.state.MyBooks.filter((book)=> book.shelf==='currentlyReading')} />
+            <BookShelf updateBook={this.updateBook} Shelf='Want to read' Books={this.state.MyBooks.filter((book)=> book.shelf==='wantToRead')}/>
+            <BookShelf updateBook={this.updateBook} Shelf='Read' Books={this.state.MyBooks.filter((book)=> book.shelf==='read')}/>
 
             </div>
           </div>

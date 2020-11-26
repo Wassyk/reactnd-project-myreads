@@ -49,8 +49,6 @@ class SearchBook extends React.Component {
                          : this.state.Books.map((item)=>(<li><Book Obj={item}/></li>))
                             
                        }
-
-                       {console.log(this.state.Books)}
                     </ol>
                 </div>
             </div>

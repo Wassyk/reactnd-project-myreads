@@ -13,7 +13,7 @@ class BookShelf extends React.Component {
                     <ol className="books-grid">
                     {(this.props.Books=== undefined) ||(this.props.Books.error==='empty query')
                          ?<p> No result found</p>
-                         : this.props.Books.map((item)=>(<li><Book Obj={item}/></li>))
+                         : this.props.Books.map((item)=>(<li><Book updateBook={this.props.updateBook} Obj={item}/></li>))
                        }       
                     </ol>
                 </div>
