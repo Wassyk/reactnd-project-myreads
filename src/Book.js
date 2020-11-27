@@ -6,8 +6,9 @@ class Book extends React.Component {
 
     render() {
 const Obj= this.props.Obj;
-Obj.shelf='none'
+
  if(this.props.myBook!==undefined){
+    Obj.shelf='none'
  this.props.myBook.map((mb)=>(mb.id===Obj.id ?Obj.shelf=mb.shelf :{}))}
  let img;
  Obj.imageLinks===undefined
