@@ -15,7 +15,7 @@ class Book extends React.Component {
                 <div className="book-top">
                     <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: img }}></div>
                     <div className="book-shelf-changer">
-                        <select defaultValue="none" onChange={(e)=>{this.props.updateBook(Obj,e.target.value)}}>
+                        <select defaultValue={Obj.shelf} onChange={(e)=>{this.props.updateBook(Obj,e.target.value)}}>
                             <option value="move" > Move to...</option>
                             <option value="currentlyReading"   disabled={this.props.Obj.shelf==='currentlyReading' ?true :null} >Currently Reading</option>
                             <option value="wantToRead"  disabled={this.props.Obj.shelf==='wantToRead' ?true :null} >Want to Read</option>
