@@ -35,7 +35,7 @@ updateBook=(Book,shelf)=>{
     return (
       <div className="app">
         <Route exact path='/search' render={() => (
-          <SearchBook updateBook={this.updateBook}/>)}/>
+          <SearchBook myBook={this.state.MyBooks} updateBook={this.updateBook}/>)}/>
         <Route exact path='/' render={() => (
           <div className="list-books">
           <div className="list-books-title">

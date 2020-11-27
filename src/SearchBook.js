@@ -19,10 +19,13 @@ class SearchBook extends React.Component {
                 Books: books
             }))
         })
+        
     }
 
-    render() {
 
+    render() {
+       let BB= this.state.Books.filter((mb)=> !(this.props.myBook.includes(mb)))
+        BB= this.props.myBook.concat(BB)
         return (
 
             <div className="search-books">
@@ -46,7 +49,7 @@ class SearchBook extends React.Component {
                     <ol className="books-grid">
                         {(this.state.Books=== undefined) ||(this.state.Books.error==='empty query')
                          ?<p> No result found</p>
-                         : this.state.Books.map((item)=>(<li key={item.id}><Book Obj={item} updateBook={this.props.updateBook}/></li>))
+                         : BB.map((item)=>(<li key={item.id}><Book Obj={item} updateBook={this.props.updateBook} checkShelf={this.checkShelf}/></li>))
                             
                        }
                     </ol>
