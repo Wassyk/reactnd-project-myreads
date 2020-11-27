@@ -5,7 +5,10 @@ class Book extends React.Component {
 
 
     render() {
- const Obj= this.props.Obj;
+const Obj= this.props.Obj;
+Obj.shelf='none'
+ if(this.props.myBook!==undefined){
+ this.props.myBook.map((mb)=>(mb.id===Obj.id ?Obj.shelf=mb.shelf :{}))}
  let img;
  Obj.imageLinks===undefined
  ? img=''
@@ -20,7 +23,7 @@ class Book extends React.Component {
                             <option value="currentlyReading"   disabled={this.props.Obj.shelf==='currentlyReading' ?true :null} >Currently Reading</option>
                             <option value="wantToRead"  disabled={this.props.Obj.shelf==='wantToRead' ?true :null} >Want to Read</option>
                             <option value="read"  disabled={this.props.Obj.shelf==='read' ?true :null} >Read</option>
-                            <option value="none">None</option>
+                            <option value="none" disabled={this.props.Obj.shelf==='none' ?true :null} >None</option>
                         </select>
                     </div>
                 </div>
